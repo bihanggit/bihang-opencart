@@ -81,7 +81,8 @@ class Oklink_Rpc
         // CURL options
         $curlOpts[CURLOPT_URL] = substr(OklinkBase::WEB_BASE,0,-1).$url;
         $curlOpts[CURLOPT_HTTPHEADER] = $headers;
-        $curlOpts[CURLOPT_CAINFO] = dirname(__FILE__) . '/ca-oklink.cre';
+        // $curlOpts[CURLOPT_CAINFO] = dirname(__FILE__) . '/ca-oklink.cre';
+        $curlOpts[CURLOPT_SSL_VERIFYPEER] = false;
         $curlOpts[CURLOPT_RETURNTRANSFER] = true;
 
         // Do request
