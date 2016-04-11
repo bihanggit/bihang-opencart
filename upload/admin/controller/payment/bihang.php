@@ -1,16 +1,16 @@
 <?php
-class ControllerPaymentOklink extends Controller {
+class ControllerPaymentBihang extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->load->language('payment/oklink');
+		$this->load->language('payment/bihang');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
 		$this->load->model('setting/setting');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
-			$this->model_setting_setting->editSetting('oklink', $this->request->post);
+			$this->model_setting_setting->editSetting('bihang', $this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
@@ -53,56 +53,56 @@ class ControllerPaymentOklink extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('payment/oklink', 'token=' . $this->session->data['token'], 'SSL')
+			'href' => $this->url->link('payment/bihang', 'token=' . $this->session->data['token'], 'SSL')
 		);
 
-		$data['action'] = $this->url->link('payment/oklink', 'token=' . $this->session->data['token'], 'SSL');
+		$data['action'] = $this->url->link('payment/bihang', 'token=' . $this->session->data['token'], 'SSL');
 
 		$data['cancel'] = $this->url->link('extension/payment', 'token=' . $this->session->data['token'], 'SSL');
 
-		if (isset($this->request->post['oklink_order_status_id'])) {
-			$data['oklink_order_status_id'] = $this->request->post['oklink_order_status_id'];
+		if (isset($this->request->post['bihang_order_status_id'])) {
+			$data['bihang_order_status_id'] = $this->request->post['bihang_order_status_id'];
 		} else {
-			$data['oklink_order_status_id'] = $this->config->get('oklink_order_status_id');
+			$data['bihang_order_status_id'] = $this->config->get('bihang_order_status_id');
 		}
 
 		$this->load->model('localisation/order_status');
 
 		$data['order_statuses'] = $this->model_localisation_order_status->getOrderStatuses();
 
-		if (isset($this->request->post['oklink_status'])) {
-			$data['oklink_status'] = $this->request->post['oklink_status'];
+		if (isset($this->request->post['bihang_status'])) {
+			$data['bihang_status'] = $this->request->post['bihang_status'];
 		} else {
-			$data['oklink_status'] = $this->config->get('oklink_status');
+			$data['bihang_status'] = $this->config->get('bihang_status');
 		}
 
-		if (isset($this->request->post['oklink_sort_order'])) {
-			$data['oklink_sort_order'] = $this->request->post['oklink_sort_order'];
+		if (isset($this->request->post['bihang_sort_order'])) {
+			$data['bihang_sort_order'] = $this->request->post['bihang_sort_order'];
 		} else {
-			$data['oklink_sort_order'] = $this->config->get('oklink_sort_order');
+			$data['bihang_sort_order'] = $this->config->get('bihang_sort_order');
 		}
 
-		if (isset($this->request->post['oklink_api_key'])) {
-			$data['oklink_api_key'] = $this->request->post['oklink_api_key'];
+		if (isset($this->request->post['bihang_api_key'])) {
+			$data['bihang_api_key'] = $this->request->post['bihang_api_key'];
 		} else {
-			$data['oklink_api_key'] = $this->config->get('oklink_api_key');
+			$data['bihang_api_key'] = $this->config->get('bihang_api_key');
 		}
 
-		if (isset($this->request->post['oklink_api_secret'])) {
-			$data['oklink_api_secret'] = $this->request->post['oklink_api_secret'];
+		if (isset($this->request->post['bihang_api_secret'])) {
+			$data['bihang_api_secret'] = $this->request->post['bihang_api_secret'];
 		} else {
-			$data['oklink_api_secret'] = $this->config->get('oklink_api_secret');
+			$data['bihang_api_secret'] = $this->config->get('bihang_api_secret');
 		}
 
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('payment/oklink.tpl', $data));
+		$this->response->setOutput($this->load->view('payment/bihang.tpl', $data));
 	}
 
 	protected function validate() {
-		if (!$this->user->hasPermission('modify', 'payment/oklink')) {
+		if (!$this->user->hasPermission('modify', 'payment/bihang')) {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 

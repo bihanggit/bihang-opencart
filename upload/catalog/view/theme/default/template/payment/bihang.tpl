@@ -6,7 +6,7 @@
 <?php }else{ ?>
 	<div class="buttons">
 	    <div class="pull-right">
-	    	<a href="<?php echo $oklink_payment_url; ?>" class="btn btn-primary"><?php echo $button_confirm; ?></a>
+	    	<a href="<?php echo $bihang_payment_url; ?>" class="btn btn-primary"><?php echo $button_confirm; ?></a>
 	    </div>
 	</div>
 <?php } ?>

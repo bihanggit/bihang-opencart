@@ -3,7 +3,7 @@
   <div class="page-header">
     <div class="container-fluid">
       <div class="pull-right">
-        <button type="submit" form="form-oklink" data-toggle="tooltip" title="<?php echo $button_save; ?>" class="btn btn-primary"><i class="fa fa-save"></i></button>
+        <button type="submit" form="form-bihang" data-toggle="tooltip" title="<?php echo $button_save; ?>" class="btn btn-primary"><i class="fa fa-save"></i></button>
         <a href="<?php echo $cancel; ?>" data-toggle="tooltip" title="<?php echo $button_cancel; ?>" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
       <h1><?php echo $heading_title; ?></h1>
       <ul class="breadcrumb">
@@ -24,12 +24,12 @@
         <h3 class="panel-title"><i class="fa fa-pencil"></i> <?php echo $text_edit; ?></h3>
       </div>
       <div class="panel-body">
-        <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form-oklink" class="form-horizontal">
+        <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form-bihang" class="form-horizontal">
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-status"><?php echo $entry_status; ?></label>
             <div class="col-sm-10">
-              <select name="oklink_status" id="input-status" class="form-control">
-                <?php if ($oklink_status) { ?>
+              <select name="bihang_status" id="input-status" class="form-control">
+                <?php if ($bihang_status) { ?>
                 <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
                 <option value="0"><?php echo $text_disabled; ?></option>
                 <?php } else { ?>
@@ -42,19 +42,19 @@
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-sort-order"><?php echo $entry_api_key; ?></label>
             <div class="col-sm-10">
-              <input type="text" name="oklink_api_key" value="<?php echo $oklink_api_key; ?>" placeholder="<?php echo $entry_api_key; ?>" id="input-api-key" class="form-control" />
+              <input type="text" name="bihang_api_key" value="<?php echo $bihang_api_key; ?>" placeholder="<?php echo $entry_api_key; ?>" id="input-api-key" class="form-control" />
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-sort-order"><?php echo $entry_api_secret; ?></label>
             <div class="col-sm-10">
-              <input type="text" name="oklink_api_secret" value="<?php echo $oklink_api_secret; ?>" placeholder="<?php echo $entry_api_secret; ?>" id="input-api-secret" class="form-control" />
+              <input type="text" name="bihang_api_secret" value="<?php echo $bihang_api_secret; ?>" placeholder="<?php echo $entry_api_secret; ?>" id="input-api-secret" class="form-control" />
             </div>
           </div>                    
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-sort-order"><?php echo $entry_sort_order; ?></label>
             <div class="col-sm-10">
-              <input type="text" name="oklink_sort_order" value="<?php echo $oklink_sort_order; ?>" placeholder="<?php echo $entry_sort_order; ?>" id="input-sort-order" class="form-control" />
+              <input type="text" name="bihang_sort_order" value="<?php echo $bihang_sort_order; ?>" placeholder="<?php echo $entry_sort_order; ?>" id="input-sort-order" class="form-control" />
             </div>
           </div>
         </form>
